@@ -1,0 +1,69 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+    background-color: black;
+    color: rgb(70, 169, 25); /* Neon green text color */
+    font-size: 2rem;
+    perspective: 1000px; /* Add perspective for 3D effect */
+    overflow: hidden; /* Prevent scrollbars from appearing */
+}
+
+#textElement {
+    position: relative;
+    width: auto; /* Allow dynamic width */
+    height: auto; /* Adjust height dynamically */
+    transform-style: preserve-3d; /* Enable 3D transformations */
+    animation: rotateScene 12s linear infinite; /* Rotate the entire scene */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for multiple lines */
+    justify-content: center;
+    align-items: center; /* Center spans inside the container */
+    text-align: center; /* Center text alignment */
+    gap: 10px; /* Add consistent spacing between letters */
+}
+
+#textElement span {
+    display: inline-block;
+    transform-origin: center center; /* Set the origin for 3D transformations */
+    transition: transform 0.3s ease, color 0.2s ease; /* Smooth transition for hover effects */
+    font-weight: bold;
+    font-size: 5.0rem; /* Slightly larger font size for better visibility */
+    margin: 0; /* Remove extra margin to avoid layout issues */
+}
+
+/* Optional: Add a slow rotation to the entire text element */
+@keyframes rotateScene {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+/* Hover effect for spans */
+#textElement span:hover {
+    color: rgb(240, 229, 11); /* Change color to white on hover */
+    transform: scale(1.8); /* Slightly enlarge the letter on hover */
+}
+
+/* Make the clickable area larger for the "!" */
+a.clickable {
+    display: inline-flex; /* Ensure the link behaves like an inline element */
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* Remove underline */
+    padding: 70px; /* Further increased padding for a much larger clickable area */
+    border-radius: 45px; /* Add more rounded corners */
+    transition: background-color 0.05s ease, transform 0.05s ease; /* Fast hover effect */
+    background-color: rgba(63, 12, 12, 0.1); /* Subtle background to indicate the clickable area */
+    cursor: pointer; /* Ensure the pointer cursor appears */
+}
+
+a.clickable:hover {
+    background-color: rgba(255, 255, 255, 10.6); /* Highlight the clickable area on hover */
+    transform: scale(6.1); /* Slightly enlarge the clickable area on hover */
+}
